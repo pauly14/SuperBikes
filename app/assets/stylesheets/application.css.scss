@@ -1,0 +1,144 @@
+
+
+#wrapper {
+
+  width: 1010px;
+  margin-right: auto;
+  margin-left: auto;
+}
+body {
+  background-image:url(header.jpg);
+  width: 100%;
+  height:100%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  float: right;
+}
+#banner {
+
+  background-image:url(header.jpg);
+  width: 1000px;
+  height: 138px;
+  padding: 4px;
+  border-bottom: 2px solid;
+  font: small-caps 50px/50px "Times New Roman", serif;
+  text-shadow:12px 10px 2px darkorange ;
+  color: rgba(255, 7, 57, 0.88);
+  text-align: center;
+
+  img {
+    float: left;
+  }
+}
+
+#notice {
+  color: #000 !important;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#columns {
+  background: #000000;
+
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: #909793;
+  }
+
+  #side {
+    float: left;
+    padding: 1em 2em;
+    width: 10em;
+    background: #000000;
+    form, div{
+      display: inline;
+    }
+
+    input {
+      font-size: small;
+
+    }
+
+    #cart {
+      font-size: smaller;
+      color: white;
+
+      table {
+        border-top: 1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        a {
+          color: #fa0711;
+          font-size: small;
+
+        }
+      }
+    }
+  }
+}
+#footer {
+
+  position: absloute;
+
+  height: 7em;
+
+  background: #000000;
+  border-top: 2px solid;
+  font: small-caps 10px/20px "Times New Roman", serif;
+  color: #fa0711;
+  text-align: center;
+
+}
+.depot_form {
+  fieldset {
+    background: #1958ff;
+    legend {
+      color: #faeb15;
+      background: #000000;
+      max-width: 720px;
+      font-family: sans-serif;
+
+      padding: 0.2em 1em;
+    }
+  }
+  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+    select, textarea, input {
+      margin-left: 0.5em;
+    }
+    .submit {
+      margin-left: 4em;
+    }
+    br {
+      display: none
+    }
+  }
+}
+.class_name span {
+  width:100%;
+  height:100%;
+  position:absolute;
+  z-index:2;
+  top:0px;
+  left:0px;
+}

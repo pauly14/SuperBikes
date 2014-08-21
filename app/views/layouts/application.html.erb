@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SuperBikes</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" language="javascript"></script>
+  <script type="text/javascript" charset="utf-8">
+      $(function() {
+          $("#alert").click(function() {
+              alert(this.getAttribute("data-message"));
+              return false;
+          })
+      })
+  </script>
+  <script>
+      function startTime()
+      {
+          var today=new Date();
+          var h=today.getHours();
+          var m=today.getMinutes();
+          var s=today.getSeconds();
+// add a zero in front of numbers<10
+          m=checkTime(m);
+          s=checkTime(s);
+          document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+          t=setTimeout(function(){startTime()},500);
+      }
+
+      function checkTime(i)
+      {
+          if (i<10)
+          {
+              i="0" + i;
+          }
+          return i;
+      }
+  </script>
+</head>
+
+
+<body onload="startTime()">
+<div id="wrapper">
+  <div id="banner">
+   <%= image_tag("Logo.png") %>
+   <%= @page_title || "SuperBikes" %>
+  </div>
+ <div id="columns" >
+   <div id="side" >
+
+
+     <div class="navbar navbar-inverse">
+       <div class="navbar-inner">
+         <div class="container">
+
+           <ul class="nav">
+             <li class="active">
+             <li class="divider-vertical"></li>
+             <li><%= link_to "Home",welcome_home_path %></li>
+             <li class="divider-vertical"></li>
+             <li><%= link_to "Product Catalogue",products_path %></li>
+             <li class="divider-vertical"></li>
+             <li><%= link_to "Login",new_user_session_path %></li>
+             <li class="divider-vertical"></li>
+             <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+             <li class="divider-vertical"></li>
+
+           </ul>
+         </div>
+       </div>
+     </div>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+<%= yield %>
+     <% if user_signed_in? %>
+         <div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)</div>
+     <% else %>
+         <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+     <% end %>
+
+   </div>
+
+
+ </div>
+
+ <div id="footer">
+   <div id="txt">Time </div>
+   &copy; SuperBikes  COPYRIGHT
+ </div>
+</div>
+ </div>
+</body>
+</html>

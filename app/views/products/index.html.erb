@@ -1,0 +1,55 @@
+<h2>Listing Bikes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Description</th>
+      <th>Specification</th>
+      <th>Image url</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.make %></td>
+        <td><%= product.description %></td>
+        <td><%= product.specification %></td>
+        <td><%= product.image_url %></td>
+        <td><%= product.year %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% @products.each do |product| %>
+
+
+      <div class="entry" >
+
+        <h3><%= product.make %></h3>
+        <%=sanitize product.description %>
+        <%= image_tag(product.image_url) %>
+        <div class="price_line" >
+          <span class="price" ><%= product.price %></span>
+        </div>
+      </div>
+  <% end %>
+  </tbody>
+</table>
+<%= form_tag products_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search_query, params[:search_query] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+<br>
+
+<%= link_to 'New Product', new_product_path %>
